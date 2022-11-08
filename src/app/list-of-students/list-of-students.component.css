@@ -1,0 +1,27 @@
+table{
+    border: 2px solid brown;
+    padding: 10px;
+    background-color: aquamarine;
+    margin-top: 50px;
+   
+}
+th{
+    font-size: larger;
+    font-weight: bold;
+    color: red;
+}
+td{
+    font-size: larger;
+    font-weight: bold;
+    color: green;
+}
+#edit
+{
+    color: white;
+    background-color: rgb(118, 131, 245);
+}
+#delete
+{
+    color: white;
+    background-color: red;
+}

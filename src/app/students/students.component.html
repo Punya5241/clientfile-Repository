@@ -1,0 +1,10 @@
+<h1 style="color: red;">Sample implementation of Web API Calling for Demo</h1>
+
+<input type="button" [routerLink]="['/ListOfStudents']" class="btn btn-info" value="Get Students" />&nbsp;
+
+<input type="button" class="btn btn-primary" (click)="getStudent()" value="Get Student" />&nbsp;
+
+<input type="button" class="btn btn-success" [routerLink]="['/studentmodel']" value="Add Student" />&nbsp;
+
+<input type="button" (click)="updateStudent()" class="btn btn-dark" value="Update Student" />
+<!-- <input type="button" (click)="deleteStudent()" value="Delete Student" /> -->

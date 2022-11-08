@@ -1,0 +1,221 @@
+<button class="btn btn-info" style="float: right; border-radius: 5px;" [routerLink]="['/studentlist']"
+    value="Get Students">Back</button>
+<br>
+
+
+<div style="background-color:aquamarine;">
+    <form ngForm #frmUserSave="ngForm" (ngSubmit)="StudentSave()">
+        <div class="row">
+            <div class="col-sm-4">
+                <label>UserId : </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                <label>{{student.UserId}}</label>
+            </div>
+        </div>
+
+        <div>
+            <div class="row">
+                <div class="col-sm-4"><label>FirstName</label></div>
+                <div class="col-sm-4"><label>LastName</label></div>
+                <div class="col-sm-4"><label>ContactNumber</label></div>
+            </div>
+        </div>
+
+        <div>
+            <div class="row">
+                <div class="col-sm-4"><input type="text" class="form-control" [(ngModel)]="student.FirstName"
+                        name="FirstName" id="FirstName" /> </div>
+                <div class="col-sm-4"><input type="text" class="form-control" [(ngModel)]="student.LastName"
+                        name="LastName" id="LastName" /></div>
+                <div class="col-sm-4"><input type="text" class="form-control" [(ngModel)]="student.ContactNumber"
+                        name="ContactNumber" id="ContactNumber" /> </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="row">
+                <div class="col-sm-4"><label>Address</label></div>
+                <div class="col-sm-4"><label>City</label></div>
+                <div class="col-sm-4"><label>State</label></div>
+            </div>
+        </div>
+
+        <div>
+            <div class="row">
+                <div class="col-sm-4"><input type="text" class="form-control" [(ngModel)]="student.Address"
+                        name="Address" id="Address" /> </div>
+                <div class="col-sm-4"><input type="text" class="form-control" [(ngModel)]="student.City" name="City"
+                        id="City" /></div>
+                <div class="col-sm-4"><input type="text" class="form-control" [(ngModel)]="student.State" name="State"
+                        id="State" /> </div>
+            </div>
+        </div>
+
+
+        <div>
+            <div class="row">
+                <div class="col-sm-4"><label>Country</label></div>
+                <div class="col-sm-4"><label>PostalCode</label></div>
+                <div class="col-sm-4"><label>LoginID</label></div>
+            </div>
+        </div>
+
+        <div>
+            <div class="row">
+                <div class="col-sm-4"><input type="text" class="form-control" [(ngModel)]="student.Country"
+                        name="Country" id="Country" /> </div>
+                <div class="col-sm-4"><input type="text" class="form-control" [(ngModel)]="student.PostalCode"
+                        name="PostalCode" id="PostalCode" /></div>
+                <div class="col-sm-4"><input type="text" class="form-control" [(ngModel)]="student.LoginID"
+                        name="LoginID" id="LoginID" /></div>
+
+            </div>
+        </div>
+
+
+        <div>
+            <div class="row">
+                <div class="col-sm-4"><label>Password</label></div>
+                <div class="col-sm-4"><label>CreatedBy</label></div>
+                <div class="col-sm-4"><label>CreatedDate</label></div>
+            </div>
+        </div>
+
+        <div>
+            <div class="row">
+                <div class="col-sm-4"><input type="text" class="form-control" [(ngModel)]="student.Password"
+                        name="Password" id="Password" /> </div>
+                <div class="col-sm-4"><input type="text" class="form-control" [(ngModel)]="student.CreatedBy"
+                        name="CreatedBy" id="CreatedBy" /> </div>
+                <div class="col-sm-4"><input type="datetime-local" class="form-control"
+                        [(ngModel)]="student.CreatedDate" name="CreatedDate" id="CreatedDate" /></div>
+            </div>
+        </div>
+
+        <div>
+            <div class="row">
+                <div class="col-sm-4"><label>ModifiedDate</label></div>
+                <div class="col-sm-4"><label>EmailId</label></div>
+            </div>
+        </div>
+
+        <div>
+            <div class="row">
+                <div class="col-sm-4"><input type="datetime-local" class="form-control"
+                        [(ngModel)]="student.ModifiedDate" name="ModifiedDate" id="ModifiedDate" /> </div>
+                <div class="col-sm-4"><input type="text" class="form-control" [(ngModel)]="student.EmailId"
+                        name="EmailId" id="EmailId" /></div>
+            </div>
+        </div>
+
+
+        <div class="container" style="margin-left:10px; margin-top: 20px;">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h4>Education&Qualification<span style="color:red"> *</span></h4>
+
+                    <div class="table">
+
+                        <table class="table table-striped text-info">
+                            <thead>
+                                <tr style="border-color: red;">
+                                    <th style="color:brown">Degree Name</th>
+                                    <th style="color:brown">Year of PassedOut</th>
+                                    <th style="color:brown">College Name</th>
+                                    <th style="color:brown">Grade</th>
+                                    <th style="color:brown">EmployeeNumber</th>
+                                    <th style="color:brown">Actions</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr *ngFor="let details of student.QualificationDetails let i = index;">
+                                    <td>{{details.DegreeName}}</td>
+                                    <td>{{details.YearofPass}}</td>
+                                    <td>{{details.CollageName}}</td>
+                                    <td>{{details.Grade}}</td>
+                                    <td>{{details.EmployeeId}}</td>
+                                    <td><button class="btn btn-danger"
+                                            (click)="DeleteQualificationDetails(details,details.Id)"
+                                            style='cursor: pointer;'>Remove</button></td>
+                                    <td><input type="button" (click)="EditChildTable(this.i,modalData)"
+                                            class="btn btn-primary" value="Edit"></td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+                <div class="col-sm-2">
+                    <button type="button" name="addbutton" id="add" (click)="OpenPopUp(modalData)"
+                        class="btn btn-primary">AddRow</button>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div style="margin-left: 400px;margin-top: 30px; ">
+            <input type="submit" value="Save Student" id="save" class="btn btn-primary" />
+        </div>
+
+    </form>
+</div>
+
+
+
+
+<ng-template #modalData let-modal>
+    <form #regForm="ngForm" (submit)="SaveDetails(regForm)">
+        <div style="margin: 5px;padding:10px">
+            <div class="modal-header">
+                <h4 style="color:green;font-weight:bolder;font-style:italic ;" id="modal-basic-title">Enter Your
+                    Education Details</h4>
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">X</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col">
+                        <label>Degree Name</label>
+                        <input type="text" [(ngModel)]="QualificationDetails.DegreeName" name="DegreeName"
+                            class="form-control">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label>YearOfPass</label>
+                        <input type="number" [(ngModel)]="QualificationDetails.YearofPass" name="YearofPass"
+                            class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label>College Name</label>
+                        <input type="text" [(ngModel)]="QualificationDetails.CollageName" name="CollageName"
+                            class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label>Grade</label>
+                        <input type="text" [(ngModel)]="QualificationDetails.Grade" name="Grade" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label>EmployeeId</label>
+                        <input type="text" [(ngModel)]="QualificationDetails.EmployeeId" name="EmployeeId"
+                            class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input type="submit" class="btn btn-primary">
+
+            </div>
+        </div>
+    </form>
+</ng-template>

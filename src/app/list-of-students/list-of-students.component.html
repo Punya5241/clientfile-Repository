@@ -1,0 +1,63 @@
+<!-- <p>list-of-students works!</p> -->
+<button class="btn btn-info" style="float: right; border-radius: 5px;" [routerLink]="['/studentlist']"
+    value="Get Students">Back</button>
+<br>
+
+<!-- <button  (click)="onDel(d.Eid)"></button> -->
+
+<table class="table">
+    <tr>
+        <th>UserId &nbsp;&nbsp;&nbsp;</th>
+        <th>FirstName&nbsp;&nbsp;&nbsp;</th>
+        <th>LastName&nbsp;&nbsp;&nbsp;</th>
+        <th>ContactNumber&nbsp;&nbsp;&nbsp;</th>
+        <th>Address&nbsp;&nbsp;&nbsp;</th>
+        <th>City&nbsp;&nbsp;&nbsp;</th>
+        <th>State&nbsp;&nbsp;&nbsp;</th>
+        <th>Country &nbsp;&nbsp;&nbsp;</th>
+        <th>PostalCode&nbsp;&nbsp;&nbsp;</th>
+        <th>LoginID&nbsp;&nbsp;&nbsp;</th>
+        <th>Password&nbsp;&nbsp;&nbsp;</th>
+        <!-- <th>RecordState&nbsp;&nbsp;&nbsp;</th> -->
+        <th>CreatedBy&nbsp;&nbsp;&nbsp;</th>
+        <th>CreatedDate&nbsp;&nbsp;&nbsp;</th>
+        <th>ModifiedDate&nbsp;&nbsp;&nbsp;</th>
+        <th>EmailId&nbsp;&nbsp;&nbsp;</th>
+        <th>DegreeName&nbsp;&nbsp;&nbsp;</th>
+        <th>YearOfPass&nbsp;&nbsp;&nbsp;</th>
+        <th>CollegeName&nbsp;&nbsp;&nbsp;</th>
+        <th>Grade&nbsp;&nbsp;&nbsp;</th>
+        <th>EmployeeNo&nbsp;&nbsp;&nbsp;</th>
+        <th>Edit&nbsp;&nbsp;&nbsp;</th>
+        <th>Delete&nbsp;&nbsp;&nbsp;</th>
+
+
+    </tr>
+    <tr *ngFor="let d of studentList">
+        <td>{{d.UserId}}&nbsp;&nbsp;&nbsp;</td>
+        <td>{{d.FirstName}}&nbsp;&nbsp;&nbsp;</td>
+        <td>{{d.LastName}}&nbsp;&nbsp;&nbsp;</td>
+        <td>{{d.ContactNumber}}&nbsp;&nbsp;&nbsp;</td>
+        <td>{{d.Address}}&nbsp;&nbsp;&nbsp;</td>
+        <td>{{d.City}}&nbsp;&nbsp;&nbsp;</td>
+        <td>{{d.State}}&nbsp;&nbsp;&nbsp;</td>
+        <td>{{d.Country}}&nbsp;&nbsp;&nbsp;</td>
+        <td>{{d.PostalCode}}&nbsp;&nbsp;&nbsp;</td>
+        <td>{{d.LoginID}}&nbsp;&nbsp;&nbsp;</td>
+        <td>{{d.Password}}&nbsp;&nbsp;&nbsp;</td>
+        <!-- <td>{{d.RecordState}}&nbsp;&nbsp;&nbsp;</td> -->
+        <td>{{d.CreatedBy}}&nbsp;&nbsp;&nbsp;</td>
+        <!-- <td>{{d.[CreatedBy]}}&nbsp;&nbsp;&nbsp;</td> -->
+        <td>{{d.CreatedDate}}&nbsp;&nbsp;&nbsp;</td>
+        <td>{{d.ModifiedDate}}&nbsp;&nbsp;&nbsp;</td>
+        <td>{{d.EmailId}}&nbsp;&nbsp;&nbsp;</td>
+        <td>{{d.QualificationDetails[0].DegreeName}}</td>
+        <td>{{d.QualificationDetails[0].YearofPass}}</td>
+        <td>{{d.QualificationDetails[0].CollageName}}</td>
+        <td>{{d.QualificationDetails[0].Grade}}</td>
+        <td>{{d.QualificationDetails[0].EmployeeId}}</td>
+
+        <td><button id="edit" [routerLink]="['/studentmodel',d.UserId]">Edit</button>&nbsp;&nbsp;&nbsp;</td>
+        <td><button id="delete" (click)="deleteStudent(d.UserId)">Delete</button>&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+</table>
